@@ -1,0 +1,18 @@
+#include "SevSeg.h"
+SevSeg sevseg; 
+
+void setup(){
+    byte numDigits = 1;
+    byte digitPins[] = {};
+    byte segmentPins[] = {10, 9, 11, 12, 13, 8, 7, 3};
+    bool resistorsOnSegments = true;
+
+    byte hardwareConfig = COMMON_CATHODE; 
+    sevseg.begin(hardwareConfig, numDigits, digitPins, segmentPins, resistorsOnSegments);
+    sevseg.setBrightness(90);
+}
+
+void loop(){
+        sevseg.setNumber(5);
+        sevseg.refreshDisplay();        
+}
